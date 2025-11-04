@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABIGALISTIC STUDIO - Crafting Intelligent Tech Innovation</title>
+    <title>ABIGALISTIC STUDIOS - Crafting Intelligent Tech Innovation</title>
     <meta name="google-site-verification" content="yqC45G4FTt2ArUSSI3PaK7kfRK4A2kElBJPpHxSGljA" />
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Abigalistic Studious - Crafting Intelligent Tech Innovation">
+    <meta property="og:title" content="Abigalistic Studios - Crafting Intelligent Tech Innovation">
     <meta property="og:description" content="We transform ideas into sophisticated digital solutions through software development, AI integration, and prompt engineering.">
     <meta property="og:url" content="https://abiga770.github.io/Abigalisticstudious/">
     <meta property="og:type" content="website">
@@ -39,6 +39,7 @@
             color: var(--dark);
             background-color: var(--lighter);
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         
         .container {
@@ -56,25 +57,61 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 5px 0;
         }
         
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
         }
         
         .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
             display: flex;
             align-items: center;
+            gap: 12px;
+            text-decoration: none;
         }
         
-        .logo span {
-            color: var(--secondary);
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-main {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--darker);
+            line-height: 1;
+        }
+        
+        .logo-tagline {
+            font-size: 12px;
+            color: var(--gray);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
         }
         
         .nav-links {
@@ -91,10 +128,26 @@
             color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
         }
         
         .nav-links a:hover {
             color: var(--primary);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
         }
         
         .mobile-menu-btn {
@@ -111,6 +164,35 @@
             padding: 160px 0 100px;
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+            top: -100px;
+            right: -100px;
+        }
+        
+        .hero:after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+            bottom: -75px;
+            left: -75px;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
         
         .hero h1 {
@@ -118,6 +200,9 @@
             font-weight: 800;
             margin-bottom: 20px;
             color: var(--darker);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
         }
         
         .hero p {
@@ -125,12 +210,18 @@
             color: var(--gray);
             max-width: 700px;
             margin: 0 auto 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease 0.2s forwards;
         }
         
         .hero-buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease 0.4s forwards;
         }
         
         .btn {
@@ -153,6 +244,7 @@
             background-color: var(--primary-dark);
             border-color: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
         }
         
         .btn-outline {
@@ -165,6 +257,7 @@
             background-color: var(--primary);
             color: white;
             transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
         }
         
         /* About Section */
@@ -183,6 +276,20 @@
             font-weight: 700;
             color: var(--darker);
             margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
         
         .section-title p {
@@ -211,6 +318,20 @@
             color: var(--gray);
         }
         
+        .name-origin {
+            background-color: var(--lighter);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .name-origin h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
         .about-image {
             position: relative;
         }
@@ -219,6 +340,11 @@
             width: 100%;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.02);
         }
         
         /* Services Section */
@@ -239,11 +365,38 @@
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px);
         }
         
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .service-card:nth-child(1) { transition-delay: 0.1s; }
+        .service-card:nth-child(2) { transition-delay: 0.2s; }
+        .service-card:nth-child(3) { transition-delay: 0.3s; }
+        .service-card:nth-child(4) { transition-delay: 0.4s; }
+        .service-card:nth-child(5) { transition-delay: 0.5s; }
+        .service-card:nth-child(6) { transition-delay: 0.6s; }
+        
         .service-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
         }
         
         .service-icon {
@@ -280,12 +433,37 @@
             border-radius: 10px;
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .testimonial-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .testimonial-card:nth-child(1) { transition-delay: 0.1s; }
+        .testimonial-card:nth-child(2) { transition-delay: 0.2s; }
+        .testimonial-card:nth-child(3) { transition-delay: 0.3s; }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: rgba(59, 130, 246, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
         }
         
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
             color: var(--gray);
+            position: relative;
+            z-index: 1;
         }
         
         .testimonial-author {
@@ -299,6 +477,7 @@
             border-radius: 50%;
             overflow: hidden;
             margin-right: 15px;
+            border: 3px solid var(--primary);
         }
         
         .author-image img {
@@ -371,6 +550,14 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
         
         .contact-form textarea {
@@ -432,11 +619,12 @@
             border-radius: 50%;
             color: white;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
         
         .social-links a:hover {
             background-color: var(--primary);
+            transform: translateY(-3px);
         }
         
         .copyright {
@@ -445,6 +633,83 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #9CA3AF;
             font-size: 0.875rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Floating shapes */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s infinite linear;
+        }
+        
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--secondary);
+            border-radius: 50%;
+            top: 60%;
+            left: 80%;
+            animation-delay: -5s;
+        }
+        
+        .shape-3 {
+            width: 80px;
+            height: 80px;
+            background: var(--success);
+            border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+            top: 80%;
+            left: 20%;
+            animation-delay: -10s;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(20px, 20px) rotate(90deg);
+            }
+            50% {
+                transform: translate(0, 40px) rotate(180deg);
+            }
+            75% {
+                transform: translate(-20px, 20px) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
         }
         
         /* Responsive Design */
@@ -462,6 +727,22 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
             }
             
             .mobile-menu-btn {
@@ -480,6 +761,20 @@
             .hero p {
                 font-size: 1rem;
             }
+            
+            .logo-text {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -488,7 +783,13 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">ABIGALISTIC<span>STUDIO</span></div>
+                <a href="#home" class="logo">
+                    <div class="logo-img">A</div>
+                    <div class="logo-text">
+                        <div class="logo-main">ABIGALISTIC STUDIOS</div>
+                        <div class="logo-tagline">crafting intelligent tech innovation</div>
+                    </div>
+                </a>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -506,11 +807,13 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Crafting Intelligent Tech Innovation</h1>
-            <p>We transform visionary ideas into sophisticated, functional reality through cutting-edge software development, AI integration, and digital craftsmanship.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Get Started</a>
-                <a href="#services" class="btn btn-outline">Our Services</a>
+            <div class="hero-content">
+                <h1>Crafting Intelligent Tech Innovation</h1>
+                <p>We transform visionary ideas into sophisticated, functional reality through cutting-edge software development, AI integration, and digital craftsmanship.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="#services" class="btn btn-outline">Our Services</a>
+                </div>
             </div>
         </div>
     </section>
@@ -519,13 +822,19 @@
     <section class="about" id="about">
         <div class="container">
             <div class="section-title">
-                <h2>About ABIGALISTIC STUDIO</h2>
+                <h2>About ABIGALISTIC STUDIOS</h2>
                 <p>Where the art of creation meets the science of intelligence</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
                     <h3>Crafting Intelligent Tech Innovation</h3>
-                    <p>Welcome to ABIGALISTIC STUDIO, where we are dedicated to transforming visionary ideas into sophisticated, functional reality. Our name embodies our mission: a blend of <strong>Abigail</strong> (symbolizing "source of joy" and intellectual pursuit) and <strong>Logistic</strong> (the meticulous science of process and efficiency).</p>
+                    <p>Welcome to ABIGALISTIC STUDIOS, where we are dedicated to transforming visionary ideas into sophisticated, functional reality.</p>
+                    
+                    <div class="name-origin">
+                        <h4>The Origin of Our Name</h4>
+                        <p>The name "Abigalistic" originates from Adam, whose nickname is "Abiga". This personal connection represents our commitment to creating technology with a human touch - solutions that are not just technically advanced but also intuitive and meaningful.</p>
+                    </div>
+                    
                     <p>We operate at the intersection of creativity and cutting-edge technology, specializing in the entire spectrum of digital innovation. Our studio is built on the belief that technology should be not only powerful and intelligent but also intuitive, accessible, and a positive force for growth.</p>
                     <p>We are driven by a passion for positive impact, leveraging our skills for projects that promote sustainability, education, and social good, believing that the best technology is that which elevates and empowers.</p>
                     <blockquote style="border-left: 4px solid var(--primary); padding-left: 20px; margin: 20px 0; font-style: italic; color: var(--gray);">
@@ -533,7 +842,7 @@
                     </blockquote>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="ABIGALISTIC STUDIO Team">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="ABIGALISTIC STUDIOS Team">
                 </div>
             </div>
         </div>
@@ -603,7 +912,7 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        "ABIGALISTIC STUDIO transformed our business operations with their custom AI solution. Their team is professional, innovative, and delivered beyond our expectations."
+                        "ABIGALISTIC STUDIOS transformed our business operations with their custom AI solution. Their team is professional, innovative, and delivered beyond our expectations."
                     </div>
                     <div class="testimonial-author">
                         <div class="author-image">
@@ -631,7 +940,7 @@
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        "Working with ABIGALISTIC STUDIO was a game-changer for our startup. Their technical consulting helped us build a scalable architecture from day one."
+                        "Working with ABIGALISTIC STUDIOS was a game-changer for our startup. Their technical consulting helped us build a scalable architecture from day one."
                     </div>
                     <div class="testimonial-author">
                         <div class="author-image">
@@ -706,7 +1015,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>ABIGALISTIC STUDIO</h4>
+                    <h4>ABIGALISTIC STUDIOS</h4>
                     <p>Crafting Intelligent Tech Innovation through sophisticated software solutions, AI integration, and digital craftsmanship.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -737,16 +1046,32 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 ABIGALISTIC STUDIO. All rights reserved.</p>
+                <p>&copy; 2023 ABIGALISTIC STUDIOS. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
     <script>
-        // Simple JavaScript for mobile menu toggle
+        // Mobile menu toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.classList.toggle('active');
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
         
         // Form submission handling
@@ -755,7 +1080,51 @@
             alert('Thank you for your message! We will get back to you soon.');
             this.reset();
         });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            observer.observe(card);
+        });
+        
+        // Observe testimonial cards
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            observer.observe(card);
+        });
     </script>
 </body>
 </html>
-
